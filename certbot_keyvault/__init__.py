@@ -33,6 +33,34 @@ class Config:
             return domain[2:]
         return domain
 
+    @property
+    def domains(self):
+        return self._domains
+
+    @property
+    def cert_name(self):
+        return self._cert_name
+
+    @property
+    def email(self):
+        return os.getenv('EMAIL', '')
+
+    @property
+    def sas_token(self):
+        return os.getenv('SAS_TOKEN', '')
+
+    @property
+    def container_name(self):
+        return os.getenv('CONTAINER_NAME', '')
+
+    @property
+    def environment(self):
+        return os.getenv('ENVIRONMENT', '')
+
+    @property
+    def acme_server(self):
+        return os.environ.get('ACME_SERVER', 'https://acme-v02.api.letsencrypt.org/directory')
+
 
 def certonly():
     pass
